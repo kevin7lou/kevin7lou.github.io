@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CyberGrid from '../components/CyberGrid.astro';
+import GlowButton from '../components/GlowButton.astro';
+import FloatingParticles from '../components/FloatingParticles.astro';
+---
+
+<Layout title="Kevin7Lou - Portfolio">
+  <CyberGrid />
+  <FloatingParticles />
+  
+  <main class="min-h-screen flex items-center justify-center relative z-10 px-4">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+      <!-- 左侧内容 -->
+      <div class="space-y-8">
+        <!-- 标题区域 -->
+        <div class="space-y-4">
+          <div class="text-sm font-orbitron tracking-wider text-neon-blue uppercase">
+            Welcome to the Digital Realm
+          </div>
+          <h1 class="text-5xl lg:text-7xl font-orbitron font-bold leading-tight">
+            <span class="text-white">Kevin</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink animate-glow">
+              7Lou
+            </span>
+          </h1>
+          <div class="text-xl lg:text-2xl text-gray-300 font-light">
+            数字世界的探索者 <span class="text-neon-green">|</span> 技术与创意的融合者
+          </div>
+        </div>
+        
+        <!-- 描述 -->
+        <div class="space-y-4 text-gray-400 text-lg leading-relaxed">
+          <p>
+            在代码与设计的交汇处，我构建着数字时代的桥梁。
+            每一行代码都承载着对未来的想象，每一个项目都是对可能性的探索。
+          </p>
+          <p>
+            欢迎来到我的数字空间，这里记录着我的技术思考与创作历程。
+          </p>
+        </div>
+        
+        <!-- 按钮组 -->
+        <div class="flex flex-wrap gap-6">
+          <GlowButton href="/blog" text="技术博客" variant="primary" />
+          <GlowButton href="/wiki" text="知识库" variant="secondary" />
+        </div>
+        
+        <!-- 状态指示器 -->
+        <div class="flex items-center space-x-4 text-sm">
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 bg-neon-green rounded-full animate-pulse"></div>
+            <span class="text-gray-400">System Online</span>
+          </div>
+          <div class="flex items-center space-x-2">
+            <div class="w-2 h-2 bg-neon-blue rounded-full animate-pulse" style="animation-delay: 0.5s;"></div>
+            <span class="text-gray-400">Ready to Connect</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 右侧视觉效果 -->
+      <div class="relative flex items-center justify-center">
+        <!-- 主要几何形状 -->
+        <div class="relative">
+          <!-- 外层旋转圈 -->
+          <div class="w-80 h-80 border border-neon-blue rounded-full animate-spin-slow opacity-30"></div>
+          
+          <!-- 中层六边形 -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-60 h-60 border-2 border-neon-purple transform rotate-45 opacity-40" 
+                 style="clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);">
+            </div>
+          </div>
+          
+          <!-- 内层核心 -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-32 h-32 bg-gradient-to-br from-neon-blue via-neon-purple to-neon-pink rounded-full opacity-60 animate-pulse-slow blur-sm"></div>
+          </div>
+          
+          <!-- 中心点 -->
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-16 h-16 bg-white rounded-full animate-pulse shadow-2xl"
+                 style="box-shadow: 0 0 30px #00f5ff, 0 0 60px #9d00ff;">
+            </div>
+          </div>
+          
+          <!-- 轨道粒子 -->
+          <div class="absolute inset-0 animate-spin" style="animation-duration: 8s;">
+            <div class="w-4 h-4 bg-neon-pink rounded-full absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-2"></div>
+          </div>
+          <div class="absolute inset-0 animate-spin" style="animation-duration: 12s; animation-direction: reverse;">
+            <div class="w-3 h-3 bg-neon-green rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-2"></div>
+          </div>
+        </div>
+        
+        <!-- 浮动装饰元素 -->
+        <div class="absolute -top-10 -right-10 w-20 h-20 border border-neon-blue transform rotate-45 animate-float"></div>
+        <div class="absolute -bottom-10 -left-10 w-16 h-16 border border-neon-purple rounded-full animate-float" style="animation-delay: 1s;"></div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- 底部状态栏 -->
+  <div class="fixed bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink opacity-50"></div>
+</Layout>
+
+<style>
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+</style> 

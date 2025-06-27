@@ -1,0 +1,80 @@
+---
+export interface Props {
+  href: string;
+  text: string;
+  variant?: 'primary' | 'secondary';
+}
+
+const { href, text, variant = 'primary' } = Astro.props;
+---
+
+<a 
+  href={href}
+  class={`glow-button ${variant === 'primary' ? 'glow-button-primary' : 'glow-button-secondary'}`}
+>
+  <span class="button-text">{text}</span>
+  <div class="button-glow"></div>
+</a>
+
+<style>
+  .glow-button {
+    position: relative;
+    display: inline-block;
+    padding: 12px 32px;
+    border: 2px solid;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+  }
+  
+  .glow-button-primary {
+    border-color: #00f5ff;
+    color: #00f5ff;
+  }
+  
+  .glow-button-secondary {
+    border-color: #9d00ff;
+    color: #9d00ff;
+  }
+  
+  .button-text {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .button-glow {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .glow-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+  }
+  
+  .glow-button-primary:hover {
+    box-shadow: 0 8px 25px rgba(0, 245, 255, 0.4);
+    text-shadow: 0 0 10px #00f5ff;
+  }
+  
+  .glow-button-secondary:hover {
+    box-shadow: 0 8px 25px rgba(157, 0, 255, 0.4);
+    text-shadow: 0 0 10px #9d00ff;
+  }
+  
+  .glow-button:hover .button-glow {
+    left: 100%;
+  }
+</style> 
