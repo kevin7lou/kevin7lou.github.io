@@ -50,6 +50,13 @@ git push origin master
 2. 确保 `package.json` 中包含所有依赖
 3. 确认分支名称是 `master` 或 `main`
 
+### 常见问题修复：
+
+**npm ci 依赖同步错误**：
+- ✅ 已修复：workflow现在使用 `npm install` 而不是 `npm ci`
+- ✅ 已修复：删除了 `package-lock.json` 文件让系统重新生成
+- ✅ 已修复：添加了缓存清理步骤确保依赖正确安装
+
 ### 如果页面不显示：
 1. 确保GitHub Pages设置为使用 `GitHub Actions`
 2. 等待DNS传播（可能需要10-15分钟）
